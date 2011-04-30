@@ -22,9 +22,9 @@
 using namespace avrlib;
 using namespace avrlib;
 
-typedef MuxedAnalogInput<0> PotsMux;
+typedef AdcInputScanner AnalogInputs;
 typedef Serial<SerialPort0, 9600, DISABLED, POLLED> Debug;
-typedef InputArray<PotsMux, 4, 4> Pots;
+typedef InputArray<AnalogInputs, 4, 4> Pots;
 
 PwmOutput<12> a;
 PwmOutput<13> b;
@@ -84,6 +84,6 @@ int main(void) {
           break;
       }
     }
-    PotsMux::set_pin(pots.active_input());
+    AnalogInputs::Scan();
   }
 }

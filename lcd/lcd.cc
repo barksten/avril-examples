@@ -25,8 +25,8 @@ using namespace avrlib;
 using namespace avrlib;
 
 typedef Hd44780Lcd<
-    Gpio<18>,
-    Gpio<19>,
+    NumberedGpio<18>,
+    NumberedGpio<19>,
     ParallelPort<PortC, PARALLEL_NIBBLE_HIGH> > Lcd;
 
 Lcd lcd;

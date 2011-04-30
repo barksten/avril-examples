@@ -19,7 +19,7 @@
 
 using namespace avrlib;
 
-Gpio<21> led;
+NumberedGpio<21> led;
 
 TIMER_0_TICK {
   TickSystemClock();

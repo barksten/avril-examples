@@ -30,10 +30,29 @@ TIMER_0_TICK {
   TickSystemClock();
 }
 
+// Shift registers / muxes.
+typedef Gpio<PortB, 7> IOClockLine;
+typedef Gpio<PortB, 6> IOInputLine;
+typedef Gpio<PortB, 5> IOOutputLine;
+typedef Gpio<PortD, 2> IOEnableLine;
+
 int main(void) {
   Boot(true);
-  OutputArray<Gpio<22>, Gpio<7>, Gpio<23>, 8, 4, MSB_FIRST, false> leds;
-  SwitchArray<Gpio<22>, Gpio<7>, Gpio<6>, 6> switches;
+
+  OutputArray<
+      IOEnableLine,
+      IOClockLine,
+      IOOutputLine,
+      8,
+      4,
+      MSB_FIRST,
+      false> leds;
+
+  SwitchArray<
+      IOEnableLine,
+      IOClockLine,
+      IOInputLine,
+      6> switches;
 
   uint8_t current_led = 0;
   uint8_t intensity = 15;

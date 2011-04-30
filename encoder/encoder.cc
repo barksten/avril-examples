@@ -23,7 +23,8 @@ using namespace avrlib;
 using namespace avrlib;
 
 typedef Serial<SerialPort0, 9600, DISABLED, POLLED> Debug;
-typedef RotaryEncoder<Gpio<0>, Gpio<1>, Gpio<2> > Encoder;
+typedef RotaryEncoder<
+    NumberedGpio<0>, NumberedGpio<1>, NumberedGpio<2> > Encoder;
 
 TIMER_0_TICK {
   TickSystemClock();
