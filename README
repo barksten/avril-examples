@@ -6,6 +6,7 @@ blink: blink a LED on pin 7.
 eeprom: interface with an external i2c eeprom chip.
 encoder: simple rotary encoder demo.
 lcd: shows how to use the non-blocking LCD class to drive a HD44780-compatible display.
+mcp4921: through a simple example (write a sawtooth wave to a MCP4921 DAC), shows how much ass SPI on UART kicks compared to the standard SPI interface.
 parallel: uses a block of 4 pins from port D for chasing lights, and another block for a binary counter.
 scan_pots: scans 4 potentiometers connected to the analog inputs, and dim 4 LEDs accordingly.
 serial_debug: echo one MIDI port to the other one.
