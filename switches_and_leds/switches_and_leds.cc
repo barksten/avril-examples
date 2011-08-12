@@ -14,8 +14,8 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "avrlib/boot.h"
-#include "avrlib/devices/output_array.h"
-#include "avrlib/devices/switch_array.h"
+#include "avrlib/deprecated/devices/output_array.h"
+#include "avrlib/deprecated/devices/switch_array.h"
 #include "avrlib/serial.h"
 #include "avrlib/time.h"
 #include "avrlib/output_stream.h"
