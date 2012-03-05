@@ -20,7 +20,6 @@
 #include "avrlib/output_stream.h"
 
 using namespace avrlib;
-using namespace avrlib;
 
 typedef AdcInputScanner AnalogInputs;
 typedef Serial<SerialPort0, 9600, DISABLED, POLLED> Debug;
@@ -30,8 +29,6 @@ PwmOutput<12> a;
 PwmOutput<13> b;
 PwmOutput<3> c;
 PwmOutput<4> d;
-
-using namespace avrlib;
 
 TIMER_0_TICK {
   TickSystemClock();

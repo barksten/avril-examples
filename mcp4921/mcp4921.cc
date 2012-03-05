@@ -20,7 +20,7 @@
 using namespace avrlib;
 
 // SpiMaster<NumberedGpio<10>, MSB_FIRST, 2> dac_interface;
-UartSpiMaster<NumberedGpio<10>, MSB_FIRST, 2> dac_interface;
+UartSpiMaster<UartSpiPort0, NumberedGpio<10>, MSB_FIRST, 2> dac_interface;
 
 NumberedGpio<2> flag;
 

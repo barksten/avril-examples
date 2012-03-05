@@ -20,7 +20,6 @@
 #include "avrlib/output_stream.h"
 
 using namespace avrlib;
-using namespace avrlib;
 
 // Debug text output.
 typedef Serial<SerialPort0, 9600, DISABLED, POLLED> Debug;

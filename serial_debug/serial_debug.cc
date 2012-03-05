@@ -18,7 +18,6 @@
 #include "avrlib/output_stream.h"
 
 using namespace avrlib;
-using namespace avrlib;
 
 typedef Serial<SerialPort0, 9600, DISABLED, POLLED> DebugPort;
 Serial<SerialPort1, 31250, BUFFERED, DISABLED> midi;

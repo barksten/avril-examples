@@ -22,7 +22,6 @@
 #include "avrlib/string.h"
 
 using namespace avrlib;
-using namespace avrlib;
 
 typedef Hd44780Lcd<
     NumberedGpio<18>,
