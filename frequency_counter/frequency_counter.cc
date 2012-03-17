@@ -69,7 +69,7 @@ int main(void) {
   lcd_refresh_timer.set_mode(TIMER_PWM_PHASE_CORRECT);
   lcd_refresh_timer.Start();
   
-  frequency_timer.set_prescaler(2);
+  frequency_timer.set_prescaler(1);
   frequency_timer.set_mode(TIMER_NORMAL);
   frequency_timer.Start();
   frequency_timer.StartInputCapture();
@@ -81,7 +81,7 @@ int main(void) {
   while (1) {
     display.Tick();
     if (interval) {
-      float frequency = (F_CPU / 8) / static_cast<float>(interval);
+      float frequency = (F_CPU) / static_cast<float>(interval);
       smoothed_frequency = 0.95 * smoothed_frequency + 0.05 * frequency;
       memset(buffer, ' ', sizeof(buffer));
       sprintf(buffer, "%.3f", smoothed_frequency);
