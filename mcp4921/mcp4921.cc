@@ -15,12 +15,13 @@
 
 #include "avrlib/devices/mcp492x.h"
 #include "avrlib/gpio.h"
+#include "avrlib/spi.h"
 #include "avrlib/boot.h"
 
 using namespace avrlib;
 
 // SpiMaster<NumberedGpio<10>, MSB_FIRST, 2> dac_interface;
-UartSpiMaster<UartSpiPort0, NumberedGpio<10>, MSB_FIRST, 2> dac_interface;
+UartSpiMaster<UartSpiPort0, NumberedGpio<10>, 16> dac_interface;
 
 NumberedGpio<2> flag;
 

@@ -16,16 +16,18 @@
 #include <stdio.h>
 #include <avr/pgmspace.h>
 
-#include "avrlib/gpio.h"
+#include "avrlib/adc.h"
 #include "avrlib/boot.h"
+#include "avrlib/gpio.h"
 #include "avrlib/time.h"
 #include "avrlib/timer.h"
 
 using namespace avrlib;
 
-typedef Timer<1> OscillatorTimer;
-typedef Gpio<PortB, 2> OscillatorOut;
-typedef PwmChannel1B Oscillator;
+Timer<1> oscillator_timer;
+Gpio<PortB, 2> oscillator_out;
+PwmChannel1B oscillator;
+Adc adc;
 
 static const uint16_t kOctave = 12 << 7;
 
@@ -104,11 +106,15 @@ uint16_t note_to_count(int16_t note) {
 
 int main(void) {
   Boot(false);
-  OscillatorOut::set_mode(DIGITAL_OUTPUT);
-  OscillatorTimer::set_mode(_BV(WGM10), _BV(WGM13), 2);
-  Oscillator::Start();
+
+  adc.Init();
+
+  oscillator_out.set_mode(DIGITAL_OUTPUT);
+  oscillator_timer.set_mode(_BV(WGM10), _BV(WGM13), 2);
+  oscillator.Start();
   uint16_t midi_note = 57 << 7;  // A3
   while (1) {
-    Oscillator::set_frequency(note_to_count(midi_note));
+    uint16_t value = adc.Read(0) << 3;
+    oscillator.set_frequency(note_to_count(value + (45 << 7)));
   }
 }
