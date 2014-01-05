@@ -7,5 +7,8 @@ ELF3=$(addprefix build/,$(ELF2))
 
 all: $(ELF3)
 
+clean:
+	$(RM) -r $(addprefix build/,$(EXAMPLES))
+
 $(ELF3):
 	$(MAKE) -f $(basename $(notdir $@))/makefile
