@@ -31,7 +31,7 @@ Adc adc;
 
 static const uint16_t kOctave = 12 << 7;
 
-prog_uint16_t pitch_table[] PROGMEM = {
+const prog_uint16_t pitch_table[] PROGMEM = {
   61156, 61046, 60936, 60826, 60716, 60607, 60497, 60388,
   60279, 60171, 60062, 59954, 59846, 59738, 59630, 59522,
   59415, 59308, 59201, 59094, 58988, 58881, 58775, 58669,
